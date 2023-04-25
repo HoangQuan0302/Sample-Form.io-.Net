@@ -1,6 +1,8 @@
 ﻿
 @page "/infolist"
+@using SimpleEmbedding.Data
 @inject IJSRuntime JSRuntime
+@inject WeatherForecastService ForecastService
 
 <div style="margin-top:2rem;">
     <div class="row" style="margin-left:0px!important;margin-right:0px!important">
@@ -11,4 +13,5 @@
     <div id="formio">
 
     </div>
+    <SimpleEmbedding.Component.SPCDataGridView DataSource="Forecasts" Settings="InputAttributes" JsonLayout="@formDesign"/>
 </div>

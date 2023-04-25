@@ -1,0 +1,39 @@
+﻿#builder .form-builder {
+    position: relative;
+}
+
+    #builder .form-builder .builder-sidebar_scroll {
+        position: sticky;
+        top: 15px;
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+
+    #builder .form-builder .builder-sidebar_search {
+        margin-bottom: 10px;
+        appearance: auto;
+    }
+
+    #builder .form-builder .form-builder-group-header {
+        padding: 0;
+    }
+
+.builder-group-button {
+    background-color: transparent;
+    white-space: normal;
+    text-align: left;
+}
+
+.builder-sidebar .btn {
+    white-space: normal;
+}
+
+.formcomponents .formcomponent {
+    text-align: left;
+    padding: 5px 5px 5px 8px;
+    margin-top: .2rem;
+    font-size: .8em;
+    line-height: 1.2;
+    border-radius: .3em;
+    cursor:grab;
+}

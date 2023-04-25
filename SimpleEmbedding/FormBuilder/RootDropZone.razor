@@ -1,0 +1,17 @@
+﻿<div class="col-xs-8 col-sm-9 col-md-10 formarea">
+    <div ref="component" class="formio-component   formio-component-label-hidden" id="e8jdh4p"
+         ondragover="event.preventDefault();"
+         ondragstart="event.dataTransfer.setData('', event.target.id);"
+         @ondrop="HandleDrop"
+         @ondragenter="HandleDragEnter"
+         @ondragleave="HandleDragLeave" >
+        <div novalidate="" ref="webform" class="formio-form">
+            <div ref="-container" class="builder-components drag-container formio-builder-form">
+                <div data-position="0" data-noattach="true" role="alert" style="text-align:center;" class="drag-and-drop-alert alert alert-info no-drag">
+                    Drag and Drop a form component
+                </div>
+            </div>
+        </div>
+        <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+    </div>
+</div>

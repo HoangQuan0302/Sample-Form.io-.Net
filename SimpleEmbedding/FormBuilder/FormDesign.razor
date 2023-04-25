@@ -1,0 +1,42 @@
+﻿@page "/spcbuilder"
+
+<div style="margin-top:2rem">
+    <div class="row" style="margin-bottom:1rem; margin-left:0px!important;margin-right:0px!important">
+        <button class="btn btn-btn-warning"><a style="text-decoration:none;color:white">back</a></button>
+    </div>
+    <div id="builder">
+        <div class="builder row form-builder">
+            <div class="col-xs-4 col-sm-3 col-md-2 form-components">
+                <div id="sidebar" class="builder-sidebar builder-sidebar_scroll">
+                    <input placeholder="Search field(s)" type="search" class="form-control builder-sidebar_search" />
+                    <div id="side-groups">
+                        <div class="field-property card ">
+                            <div class="card-header form-builder-group-header">
+                                <h5 class="mb-0 mt-0">
+                                    <button type="button" data-toggle="collapse" class="btn btn-block builder-group-button">Field Property</button>
+                                </h5>
+                            </div>
+                            <div class="collapse show">
+                                <div class="card-body no-drop p-2"
+                                     ondragover="event.preventDefault();"
+                                     ondragstart="event.dataTransfer.setData('', event.target.id);"
+                                     @ondrop="HandleDrop"
+                                     @ondragenter="HandleDragEnter"
+                                     @ondragleave="HandleDragLeave">
+                                    <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" draggable="true">
+                                        <i style="margin-right:5px;" class="fa fa-terminal"></i>
+                                        Text Field
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <RootDropZone />
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-primary" style="float:right;">Save From</button>
+    </div>
+</div>
