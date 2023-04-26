@@ -1,41 +1,305 @@
 ﻿
-
 let saveForm;
-function CreateSimpleForm(formDesign) {
-    Formio.builder(document.getElementById('builder'), {
-        components: JSON.parse(formDesign)
-    }).then(function (builder) {
-        builder.on('saveComponent', function () {
-            saveForm = builder.schema;
+function CreateSimpleForm(formDesign, uiRules) {
+    console.log(JSON.parse(uiRules))
+    Formio.builder(document.getElementById('builder'),
+        {
+            components: JSON.parse(formDesign)
+        },
+        {
+            builder: {
+                basic: false,
+                advanced: false,
+                data: false,
+                premium: false,
+                layout: {
+                    components:[]
+                },
+                custom: {
+                    title: 'Field Property',
+                    weight: 10,
+                    components: JSON.parse(uiRules)
+                },
+            },
+            editForm: {
+                textfield: [
+                    {
+                        key: 'display',
+                        ignore: false,
+                        components: [
+                            {
+                                key: "description",
+                                ignore: true
+                            },
+                            {
+                                key: 'prefix',
+                                ignore: true
+                            },
+                            {
+                                key: 'suffix',
+                                ignore: true
+                            },
+                            {
+                                key: 'allowMultipleMasks',
+                                ignore: true
+                            },
+                            {
+                                key: 'customClass',
+                                ignore: true
+                            },
+                            {
+                                key: 'tabindex',
+                                ignore: true
+                            },
+                            {
+                                key: 'autocomplete',
+                                ignore: true
+                            },
+                            {
+                                key: 'inputMask',
+                                ignore: true
+                            },
+                            {
+                                key: 'displayMask',
+                                ignore: true
+                            },
+                            {
+                                key: 'inputMaskPlaceholderChar',
+                                ignore: true
+                            }
+                        ]
+                    },
+                    {
+                        key: 'data',
+                        ignore: false,
+                        components: [
+                            {
+                                key: 'multiple',
+                                ignore: true
+                            },
+                            {
+                                key: 'defaultValue',
+                                ignore: true
+                            },
+                            {
+                                key: 'persistent',
+                                ignore: true
+                            },
+                            {
+                                key: 'inputFormat',
+                                ignore: true
+                            },
+                            {
+                                key: 'protected',
+                                ignore: true
+                            },
+                            {
+                                key: 'dbIndex',
+                                ignore: true
+                            },
+                            {
+                                key: 'truncateMultipleSpaces',
+                                ignore: true
+                            },
+                            {
+                                key: 'encrypted',
+                                ignore: true
+                            },
+                            {
+                                key: 'redrawOn',
+                                ignore: true
+                            },
+                            {
+                                key: 'calculateServer',
+                                ignore: true
+                            },
+                            {
+                                key: 'allowCalculateOverride',
+                                ignore: true
+                            },
+                            {
+                                key: 'customDefaultValue',
+                                ignore: true
+                            }
+                        ]
+                    },
+                    {
+                        key: 'validation',
+                        ignore: true,
+                    },
+                    {
+                        key: 'api',
+                        ignore: true
+                    },
+                    {
+                        key: 'conditional',
+                        ignore: true
+                    },
+                    {
+                        key: 'layout',
+                        ignore: true
+                    },
+                    {
+                        key: 'logic',
+                        ignore: true
+                    },
+                    {
+                        key: 'condition',
+                        ignore: true
+                    }
+                ]
+            }
+        }).then(function (builder) {
+            builder.on('saveComponent', function () {
+                saveForm = builder.schema;
+            });
         });
-    });
 }
 
-function formBuilderDefault() {
+function formBuilderDefault(uiRules) {
     Formio.builder(document.getElementById('builder'), {}, {
         builder: {
-            basic: {
-                components: [
-                ]
-            },
-            advanced: {
-                components: [
-                ]
-            },
-            data: {
-                components: [
-                ]
-            },
+            basic: false,
+            advanced: false,
+            data: false,
+            premium: false,
             layout: {
-                components: {
-                    table: true
-                }
-            }
+                components:[]
+            },
+            custom: {
+                title: 'Field Property',
+                weight: 10,
+                components: JSON.parse(uiRules)
+            },
         },
         editForm: {
             textfield: [
                 {
+                    key: 'display',
+                    ignore: false,
+                    components: [
+                        {
+                            key: "description",
+                            ignore: true
+                        },
+                        {
+                            key: 'tooltip',
+                            ignore: true,
+                        },
+                        {
+                            key: 'prefix',
+                            ignore: true
+                        },
+                        {
+                            key: 'suffix',
+                            ignore: true
+                        },
+                        {
+                            key: 'allowMultipleMasks',
+                            ignore: true
+                        },
+                        {
+                            key: 'customClass',
+                            ignore: true
+                        },
+                        {
+                            key: 'tabindex',
+                            ignore: true
+                        },
+                        {
+                            key: 'autocomplete',
+                            ignore: true
+                        },
+                        {
+                            key: 'inputMask',
+                            ignore: true
+                        },
+                        {
+                            key: 'displayMask',
+                            ignore: true
+                        },
+                        {
+                            key: 'inputMaskPlaceholderChar',
+                            ignore: true
+                        }
+                    ]
+                },
+                {
+                    key: 'data',
+                    ignore: false,
+                    components: [
+                        {
+                            key: 'multiple',
+                            ignore: true
+                        },
+                        {
+                            key: 'defaultValue',
+                            ignore: true
+                        },
+                        {
+                            key: 'persistent',
+                            ignore: true
+                        },
+                        {
+                            key: 'inputFormat',
+                            ignore: true
+                        },
+                        {
+                            key: 'protected',
+                            ignore: true
+                        },
+                        {
+                            key: 'dbIndex',
+                            ignore: true
+                        },
+                        {
+                            key: 'truncateMultipleSpaces',
+                            ignore: true
+                        },
+                        {
+                            key: 'encrypted',
+                            ignore: true
+                        },
+                        {
+                            key: 'redrawOn',
+                            ignore: true
+                        },
+                        {
+                            key: 'calculateServer',
+                            ignore: true
+                        },
+                        {
+                            key: 'allowCalculateOverride',
+                            ignore: true
+                        },
+                        {
+                            key: 'customDefaultValue',
+                            ignore: true
+                        }
+                    ]
+                },
+                {
                     key: 'api',
+                    ignore: true
+                },
+                {
+                    key: 'conditional',
+                    ignore: true
+                },
+                {
+                    key: 'layout',
+                    ignore: true
+                },
+                {
+                    key: 'logic',
+                    ignore: true
+                },
+                {
+                    key: 'condition',
+                    ignore: true
+                },
+                {
+                    key: 'validation',
                     ignore: true
                 }
             ]
