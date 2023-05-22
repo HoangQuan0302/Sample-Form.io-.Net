@@ -1,0 +1,21 @@
+[
+  {
+    "label": "InfoList",
+    "reorder": false,
+    "addAnotherPosition": "bottom",
+    "layoutFixed": false,
+    "enableRowGroups": false,
+    "initEmpty": false,
+    "tableView": false,
+    "defaultValue": [
+      {}
+    ],
+    "key": "infoList",
+    "type": "datagrid",
+    "input": true,
+    "pagesize": "10",
+    "showfilterrow": true,
+    "showgrouppanel": true,
+    "components": []
+  }
+]
