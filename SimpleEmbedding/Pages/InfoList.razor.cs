@@ -23,7 +23,7 @@ namespace SimpleEmbedding.Pages
         {
             WeatherForecast[] data = await ForecastService.GetForecastAsync(DateTime.Now);
             Forecasts = data.ToList();
-            var fileStream = new FileStream(@$"C:\Users\SPC - DEVELOPER\Downloads\forminfolist.json", FileMode.Open, FileAccess.Read);
+            var fileStream = new FileStream(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\forminfolist.json", FileMode.Open, FileAccess.Read);
             using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
             {
                 formDesign = streamReader.ReadToEnd();

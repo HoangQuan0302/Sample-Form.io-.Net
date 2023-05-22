@@ -17,8 +17,8 @@ namespace SimpleEmbedding.Pages
             var uri = nav.ToAbsoluteUri(nav.Uri);
             QueryHelpers.ParseQuery(uri.Query).TryGetValue("formId", out var param);
             formId = param.ToString();
-            var fileStream = new FileStream(@$"C:\Users\SPC - DEVELOPER\Downloads\{formId}.json", FileMode.Open, FileAccess.Read);
-            var fileUIRuleStream = new FileStream(@$"C:\Users\SPC - DEVELOPER\Downloads\formBusinessRule.json", FileMode.Open, FileAccess.Read);
+            var fileStream = new FileStream(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\{formId}.json", FileMode.Open, FileAccess.Read);
+            var fileUIRuleStream = new FileStream(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\formBusinessRule.json", FileMode.Open, FileAccess.Read);
             using (var streamReader = new StreamReader(fileUIRuleStream, Encoding.UTF8))
             {
                 formUIRule = streamReader.ReadToEnd();
@@ -105,13 +105,14 @@ namespace SimpleEmbedding.Pages
             if (!string.IsNullOrEmpty(xxx))
             {
                 var jsonData = JObject.Parse(xxx).Children().Values().FirstOrDefault().ToString();
-                System.IO.File.WriteAllText(@$"C:\Users\SPC - DEVELOPER\Downloads\{formId}.json", string.Empty);
-                using (StreamWriter outputFile = new StreamWriter(@$"C:\Users\SPC - DEVELOPER\Downloads\{formId}.json"))
+                System.IO.File.WriteAllText(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\{formId}.json", string.Empty);
+                using (StreamWriter outputFile = new StreamWriter(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\{formId}.json"))
                 {
                     outputFile.WriteLine(jsonData);
                     outputFile.Close();
                 }
             }
+            nav.NavigateTo("/");
         }
 
         private class FieldProperty

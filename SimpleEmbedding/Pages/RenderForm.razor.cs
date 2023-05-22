@@ -11,7 +11,7 @@ namespace SimpleEmbedding.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            var fileStream = new FileStream(@"C:\Users\SPC - DEVELOPER\Downloads\formdesign.json", FileMode.Open, FileAccess.Read);
+            var fileStream = new FileStream(@"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\formdesign.json", FileMode.Open, FileAccess.Read);
             using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
             {
                 formDesign = streamReader.ReadToEnd();
@@ -31,7 +31,7 @@ namespace SimpleEmbedding.Pages
 
         protected async Task RefreshUI()
         {
-            var fileStream = new FileStream(@"C:\Users\SPC - DEVELOPER\Downloads\formdesign.json", FileMode.Open, FileAccess.Read);
+            var fileStream = new FileStream(@"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\formdesign.json", FileMode.Open, FileAccess.Read);
             using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
             {
                 formDesign = streamReader.ReadToEnd();

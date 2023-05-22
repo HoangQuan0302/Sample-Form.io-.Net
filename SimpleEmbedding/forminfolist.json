@@ -16,6 +16,34 @@
     "pagesize": "10",
     "showfilterrow": true,
     "showgrouppanel": true,
-    "components": []
+    "components": [
+      {
+        "label": "Customer Code",
+        "widget": "choicesjs",
+        "tableView": true,
+        "key": "customerCode",
+        "type": "select",
+        "input": true,
+        "ClassCode": "pbs.BO.CRM.CUS",
+        "SubForm": "nhocus",
+        "PropertyNo": "001",
+        "NotUsed": false,
+        "ShowInInfoList": false,
+        "ShowInEditList": false,
+        "Dag": null,
+        "DefaultLookupCode": null,
+        "LookupCode": null,
+        "DisplayField": null,
+        "English": null,
+        "Vietnamese": null,
+        "Russian": null,
+        "French": null,
+        "Translation5": null,
+        "maxLength": 0,
+        "DbFieldSize": 0,
+        "ConvertBeforeSaving": false,
+        "GroupName": null
+      }
+    ]
   }
 ]
