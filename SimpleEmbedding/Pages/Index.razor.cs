@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.WebUtilities;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Security.Policy;
 using System.Text;
 
 namespace SimpleEmbedding.Pages
@@ -12,13 +14,13 @@ namespace SimpleEmbedding.Pages
         private string formUIRule = string.Empty;
         private string uiRules = string.Empty;
         private string formId = string.Empty;
+
+        [Parameter]
+        public string classId { get; set; }
         protected override async Task OnInitializedAsync()
         {
-            var uri = nav.ToAbsoluteUri(nav.Uri);
-            QueryHelpers.ParseQuery(uri.Query).TryGetValue("formId", out var param);
-            formId = param.ToString();
-            var fileStream = new FileStream(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\{formId}.json", FileMode.Open, FileAccess.Read);
-            var fileUIRuleStream = new FileStream(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\formBusinessRule.json", FileMode.Open, FileAccess.Read);
+            var fileStream = new FileStream(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\EditableSchema\formdesign#{classId.Replace('_', '#')}.json", FileMode.Open, FileAccess.Read);
+            var fileUIRuleStream = new FileStream(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\BusinessRuleSchema\businessSchema#{classId.Replace('_', '#')}.json", FileMode.Open, FileAccess.Read);
             using (var streamReader = new StreamReader(fileUIRuleStream, Encoding.UTF8))
             {
                 formUIRule = streamReader.ReadToEnd();
@@ -105,14 +107,14 @@ namespace SimpleEmbedding.Pages
             if (!string.IsNullOrEmpty(xxx))
             {
                 var jsonData = JObject.Parse(xxx).Children().Values().FirstOrDefault().ToString();
-                System.IO.File.WriteAllText(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\{formId}.json", string.Empty);
-                using (StreamWriter outputFile = new StreamWriter(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\{formId}.json"))
+                System.IO.File.WriteAllText(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\EditableSchema\formdesign#{classId.Replace('_', '#')}.json", string.Empty);
+                using (StreamWriter outputFile = new StreamWriter(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\EditableSchema\formdesign#{classId.Replace('_', '#')}.json"))
                 {
                     outputFile.WriteLine(jsonData);
                     outputFile.Close();
                 }
             }
-            nav.NavigateTo("/");
+            nav.NavigateTo($"phoebusweb/{classId}");
         }
 
         private class FieldProperty

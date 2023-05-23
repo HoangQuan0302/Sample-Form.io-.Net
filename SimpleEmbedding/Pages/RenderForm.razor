@@ -1,10 +1,10 @@
-﻿@page "/"
+﻿@page "/phoebusweb/{classId}"
 @inject IJSRuntime JSRuntime
 
 <div style="margin-top:2rem;">
     <div class="row" style="margin-left:0px!important;margin-right:0px!important">
-        <div class="action-bar">
-            <button class="btn btn-primary" style="float:right;"><a href="designform?formId=formdesign" style="text-decoration:none;color:white;">Design Form</a></button>
+        <div class="action-bar" style="margin-bottom:1rem;">
+            <button class="btn btn-primary" style="float:right;"><a href="designform/@classId" style="text-decoration:none;color:white;">Design Form</a></button>
         </div>
     </div>
     <div id="formio"></div>
