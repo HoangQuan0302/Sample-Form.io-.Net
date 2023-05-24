@@ -8,15 +8,16 @@ using System.Text;
 
 namespace SimpleEmbedding.Pages
 {
-    public partial class Index
+    public partial class DesignForm
     {
         private string formDesign = string.Empty;
         private string formUIRule = string.Empty;
         private string uiRules = string.Empty;
-        private string formId = string.Empty;
 
         [Parameter]
         public string classId { get; set; }
+        [Parameter]
+        public string id { get; set; }
         protected override async Task OnInitializedAsync()
         {
             var fileStream = new FileStream(@$"D:\Project Internal\Sample-Form.io-.Net\SimpleEmbedding\EditableSchema\formdesign#{classId.Replace('_', '#')}.json", FileMode.Open, FileAccess.Read);
@@ -114,7 +115,7 @@ namespace SimpleEmbedding.Pages
                     outputFile.Close();
                 }
             }
-            nav.NavigateTo($"phoebusweb/{classId}");
+            nav.NavigateTo($"phoebusweb/{classId}/{id}");
         }
 
         private class FieldProperty

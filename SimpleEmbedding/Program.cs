@@ -1,6 +1,9 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using SimpleEmbedding.Data;
+using SimpleEmbedding.Mappings;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +11,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MappingProfile());
+});
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 builder.Services.AddDevExpressBlazor(_ => _.BootstrapVersion = DevExpress.Blazor.BootstrapVersion.v4);
 
 var app = builder.Build();

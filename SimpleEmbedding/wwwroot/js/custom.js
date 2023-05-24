@@ -44,10 +44,6 @@ function CreateSimpleForm(formDesign, uiRules) {
                                 ignore: true
                             },
                             {
-                                key: 'customClass',
-                                ignore: true
-                            },
-                            {
                                 key: 'tabindex',
                                 ignore: true
                             },

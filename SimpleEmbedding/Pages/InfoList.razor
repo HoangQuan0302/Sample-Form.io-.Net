@@ -1,17 +1,32 @@
-﻿
-@page "/infolist"
+﻿@page "/infolist/{url}"
 @using SimpleEmbedding.Data
+@using DevExpress.Blazor
+@inject NavigationManager nav;
 @inject IJSRuntime JSRuntime
 @inject WeatherForecastService ForecastService
 
 <div style="margin-top:2rem;">
-    <div class="row" style="margin-left:0px!important;margin-right:0px!important">
-        <div class="action-bar">
-            <button class="btn btn-primary" style="float:right;"><a href="designform?&formId=forminfolist" style="text-decoration:none;color:white;">Design Form</a></button>
-        </div>
-    </div>
-    <div id="formio">
-
-    </div>
-    <SimpleEmbedding.Component.SPCDataGridView DataSource="Forecasts" Settings="InputAttributes" JsonLayout="@formDesign"/>
+    <DxGrid Data="@DataSource"
+            ShowGroupPanel=true
+            PageSize="10"
+            PageSizeSelectorVisible=true
+            PageSizeSelectorItems="@(new int[] { 5, 10, 20, 100 })"
+            CssClass="w-100 ch-360"
+            SelectionMode="GridSelectionMode.Multiple"
+            ShowSearchBox=true
+            SearchBoxNullText="Search here"
+            RowDoubleClick="OnRowDoubleClick"
+            PageIndex="@GridPageIndex"
+            PageSizeChanged="OnPageSizeChanged"
+            PageIndexChanged="OnPageIndexChanged">
+        <Columns>
+            @foreach (var itm in listField)
+            {
+                if (itm.isShow)
+                {
+                    <DxGridDataColumn FieldName="@itm.fieldName" />
+                }
+            }
+        </Columns>
+    </DxGrid>
 </div>

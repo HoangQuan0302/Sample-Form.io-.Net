@@ -1,0 +1,17 @@
+﻿@page "/designform/{classId}/{id}"
+@inject IJSRuntime JSRuntime
+@inject NavigationManager nav
+
+<div>
+    <div class="row" style="margin-bottom:1rem; margin-left:0px!important;margin-right:0px!important;position: absolute;top: 8px;left: 26rem;z-index: 2;">
+        <button class="btn btn-primary"><a href="phoebusweb/@classId/@id" style="text-decoration:none;color:white">back</a></button>
+    </div>
+    <div id="builder"></div>
+     <div id="formio"></div>
+    <div>
+        <button class="btn btn-primary" style="float:right;position: absolute;top: 8px;left: 30rem;z-index: 2;" @onclick="(()=>SaveForm())">
+            Save From
+        </button>
+    </div>
+</div>
+

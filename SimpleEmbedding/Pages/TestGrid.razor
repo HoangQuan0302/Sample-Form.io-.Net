@@ -1,0 +1,15 @@
+﻿@page "/testgrid"
+@using SimpleEmbedding.Data
+@inject IJSRuntime JSRuntime
+@inject WeatherForecastService ForecastService
+
+<div style="margin-top:2rem;">
+    <div class="row" style="margin-left:0px!important;margin-right:0px!important">
+        <div class="action-bar">
+            <button class="btn btn-primary" style="float:right;"><a href="designform?&formId=forminfolist" style="text-decoration:none;color:white;">Design Form</a></button>
+        </div>
+    </div>
+    <div id="formio">
+    </div>
+    <SimpleEmbedding.Component.testgrid DataSource="Forecasts" Settings="InputAttributes" />
+</div>

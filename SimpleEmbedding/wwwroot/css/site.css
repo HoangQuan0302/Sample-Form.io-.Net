@@ -34,6 +34,14 @@ a, .btn-link {
     color: red;
 }
 
+.label-field-custom{
+    color:#ff6500;
+    font-weight:600;
+}
+.label-field-custom .form-control {
+   height:1.8rem!important;
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
